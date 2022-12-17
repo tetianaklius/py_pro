@@ -103,7 +103,7 @@ class DublicateStudentError(Exception):
 logger = logging.getLogger("homework_11_Tetiana_Klius")
 logger.setLevel(logging.INFO)
 
-filehandler = logging.FileHandler("logger.log")
+filehandler = logging.FileHandler("../logger.log")
 filehandler.setLevel(logging.INFO)
 
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
