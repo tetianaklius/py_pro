@@ -1,4 +1,5 @@
 import logging
+
 class Product:
     def __init__(self, name: str, price: float):
         if price <= 0:
@@ -15,6 +16,46 @@ grapefruit = Product("grapefruit", 75.25)
 chocolate = Product("chocolate", 45)
 
 print(grapefruit)
+
+
+class Customer:
+    def __init__(self, name: str, age: str, phone_number: str, city: str):
+        self.name = name
+        self.age = age
+        self.phone_number = phone_number
+        self.city = city
+
+    def __str__(self):
+        return f"{self.name}, {self.age} years old, {self.city}, phone number: {self.phone_number}"
+
+
+class Order:
+    def __init__(self, customer: Customer):
+        self.customer = customer
+        self.products = []
+        self.quantities = []
+
+    def add_product(self, product: Product, quantity: float =1):
+        if product in self.products:
+            index = self.products.index(product)
+            self.quantities[index] += quantity
+        else:
+            self.products.append(product)
+            self.quantities.append(quantity)
+
+    def total_cost(self):
+        suma = 0
+        for index, item in enumerate(self.products):
+            suma += item.price * self.quantities[index]
+        return suma
+
+    def __str__(self):
+        res = '\n'.join(map
+                (lambda item: f"{item[0]} × {item[1]} = {item[0].price * item[1]} UAH",
+                zip(self.products, self.quantities))
+                )
+        return f"{self.customer}\n-order-\n{res}\nTotal: {self.total_cost()} UAH"
+
 
 class Person:
     def __init__(self, name: str, surname: str):
@@ -82,6 +123,7 @@ class Group:
 
     def __str__(self):
         return f"{self.title}:\n" + '\n'.join(map(str, self.group))
+
 
 class GroupLimitError(Exception):
     def __init__(self, max_limit):
