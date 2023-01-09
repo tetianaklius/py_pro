@@ -116,6 +116,9 @@ class Order:
         if isinstance(item, int):
             return self.products[item]
         raise TypeError
+        
+    def __len__(self):
+        return len(self.products)
 
 
 class OrderIter:
