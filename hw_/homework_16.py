@@ -7,7 +7,6 @@ from dataclasses import dataclass
 class Student:
     name: str
     surname: str
-    age: str
 
 
 class Group:
@@ -55,16 +54,16 @@ class GroupIter:
         raise StopIteration
 
 
-student_1 = Student("Hanna", "Shepit", "35")
-student_2 = Student("Serhii", "Haiduk", "22")
-student_3 = Student("Andrii", "Melnyk", "19")
-student_4 = Student("Oksana", "Dovzhenko", "20")
-student_5 = Student("Marta", "Buriak", "23")
-student_6 = Student("Lida", "Vasylenko", "25")
-student_7 = Student("Yurii", "Kozak", "26")
-student_8 = Student("Olha", "Nesterenko", "32")
-student_9 = Student("Denys", "Zhuk", "29")
-student_10 = Student("Ostap", "Stelmakh", "18")
+student_1 = Student("Hanna", "Shepit")
+student_2 = Student("Serhii", "Haiduk")
+student_3 = Student("Andrii", "Melnyk")
+student_4 = Student("Oksana", "Dovzhenko")
+student_5 = Student("Marta", "Buriak")
+student_6 = Student("Lida", "Vasylenko")
+student_7 = Student("Yurii", "Kozak")
+student_8 = Student("Olha", "Nesterenko")
+student_9 = Student("Denys", "Zhuk")
+student_10 = Student("Ostap", "Stelmakh")
 
 group = Group("Python")
 group.add_student(student_1)
